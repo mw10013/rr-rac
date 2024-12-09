@@ -5,10 +5,20 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useNavigate,
+  useHref,
+  type NavigateOptions,
 } from "react-router";
+import { RouterProvider } from "react-aria-components";
 
 import type { Route } from "./+types/root";
 import stylesheet from "./app.css?url";
+
+declare module "react-aria-components" {
+  interface RouterConfig {
+    routerOptions: NavigateOptions;
+  }
+}
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -25,6 +35,7 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const navigate = useNavigate();
   return (
     <html lang="en">
       <head>
@@ -34,9 +45,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
+        <RouterProvider navigate={navigate} useHref={useHref}>
+          {children}
+          <ScrollRestoration />
+          <Scripts />
+        </RouterProvider>
       </body>
     </html>
   );
