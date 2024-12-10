@@ -1,5 +1,5 @@
-import { Button } from "~/components/starter/Button";
 import type { Route } from "./+types/home";
+import { StarterComponents } from "~/components/starter-components";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -11,9 +11,7 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   return (
     <div className="container p-6">
-      <div className="bg-gradient-to-r from-teal-300 to-cyan-500 p-12 rounded-lg flex justify-center">
-        <Button>Book flight</Button>
-      </div>
+      <StarterComponents />
     </div>
   );
 }
