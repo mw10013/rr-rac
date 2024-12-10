@@ -1,4 +1,4 @@
-// import { StarterTable } from "./starter-table";
+import { StarterTable } from "./starter-table";
 import { Button } from "./starter/Button";
 
 export function StarterComponents() {
@@ -9,7 +9,7 @@ export function StarterComponents() {
         <Button>Book flight</Button>
       </div>
       <div className="border p-12 rounded-lg flex justify-center">
-        {/* <StarterTable /> */}
+        <StarterTable />
       </div>
     </div>
   );
