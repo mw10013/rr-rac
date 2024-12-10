@@ -34,8 +34,6 @@ export function StarterTable() {
   }, [sortDescriptor]);
 
   return (
-    <div className="container p-6">
-      <div className="border p-12 rounded-lg flex justify-center">
         <Table
           aria-label="Files"
           selectionMode="multiple"
@@ -63,7 +61,5 @@ export function StarterTable() {
             )}
           </TableBody>
         </Table>
-      </div>
-    </div>
   );
 }
