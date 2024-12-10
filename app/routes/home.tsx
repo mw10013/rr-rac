@@ -1,5 +1,5 @@
 import type { Route } from "./+types/home";
-import { StarterComponents } from "~/components/starter-components";
+import { StarterComponents } from "~/lib/components/starter-components";
 
 export function meta({}: Route.MetaArgs) {
   return [

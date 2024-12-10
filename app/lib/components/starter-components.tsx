@@ -1,3 +1,4 @@
+// import { StarterTable } from "./starter-table";
 import { Button } from "./starter/Button";
 
 export function StarterComponents() {
@@ -6,6 +7,9 @@ export function StarterComponents() {
       Starter Components
       <div className="border p-12 rounded-lg flex justify-center">
         <Button>Book flight</Button>
+      </div>
+      <div className="border p-12 rounded-lg flex justify-center">
+        {/* <StarterTable /> */}
       </div>
     </div>
   );
