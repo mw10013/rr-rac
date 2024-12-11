@@ -1,5 +1,9 @@
 - https://ui.shadcn.com/r
 - https://ui.shadcn.com/r/styles/new-york/button.json
+- https://shadcn.batchtool.com/components
+- https://dev.to/bytefer/10-component-libraries-you-must-know-to-use-shadcn-ui-3ma1
+
+- VSCode 1.91 breaks code actions: https://github.com/tailwindlabs/tailwindcss-intellisense/issues/1018
 
 # Welcome to React Router!
 
