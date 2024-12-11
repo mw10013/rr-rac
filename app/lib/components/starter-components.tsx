@@ -4,7 +4,7 @@ import { Button } from './starter/Button'
 
 export function StarterComponents() {
   return (
-    <div className="flex flex-col justify-center gap-4 rounded-lg border p-12">
+    <div className="flex flex-col items-center justify-center gap-4 rounded-lg border p-12">
       <StarterMenu />
       <StarterTable />
       <Button>Book flight</Button>
