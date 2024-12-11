@@ -1,3 +1,6 @@
+- https://ui.shadcn.com/r
+- https://ui.shadcn.com/r/styles/new-york/button.json
+
 # Welcome to React Router!
 
 A modern, production-ready template for building full-stack React applications using React Router.
