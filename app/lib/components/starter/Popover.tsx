@@ -1,7 +1,7 @@
 import {
   OverlayArrow,
   Popover as AriaPopover,
-  PopoverProps as AriaPopoverProps,
+  type PopoverProps as AriaPopoverProps,
   composeRenderProps,
   PopoverContext,
   useSlottedContext
