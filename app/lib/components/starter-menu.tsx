@@ -5,7 +5,7 @@ import { Menu, MenuItem } from './starter/Menu'
 export function StarterMenu() {
   return (
     <MenuTrigger>
-      <Button>Menu</Button>
+      <Button className="text-xs">Menu</Button>
       <Menu placement="bottom">
         <MenuItem onAction={() => alert('open')}>Open</MenuItem>
         <MenuItem onAction={() => alert('rename')}>Rename…</MenuItem>
