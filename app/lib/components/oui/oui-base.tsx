@@ -20,12 +20,15 @@ import { tv } from 'tailwind-variants'
 // shadcn input has ring-offset-background
 
 export const focusRing = tv({
-  base: 'ring-offset-background transition-colors',
-  variants: {
-    isFocusVisible: {
-      true: 'outline-none ring-2 ring-ring ring-offset-2',
-    },
-  },
+  // base: 'ring-offset-background transition-colors',
+  // no transition-colors since no transition duration.
+  // focus-visible:outline-none and focus-visible:outline-none data-[focus-visible]:outline-none to reset browser and rac.
+  base: 'transition-colors focus-visible:outline-none data-[focus-visible]:outline-none data-[focus-visible]:ring-1 data-[focus-visible]:ring-ring ',
+  // variants: {
+  //   isFocusVisible: {
+  //     true: 'outline-none ring-2 ring-ring ring-offset-2',
+  //   },
+  // },
 })
 
 export function composeTailwindRenderProps<T>(

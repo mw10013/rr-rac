@@ -1,11 +1,10 @@
-import {
-  composeRenderProps,
-  Button as RacButton,
-  type ButtonProps,
-} from 'react-aria-components'
+import type { ButtonProps } from 'react-aria-components'
+import type { VariantProps } from 'tailwind-variants'
+import { Button, composeRenderProps } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 import { focusRing } from './oui-base'
 
+// https://github.com/jolbol1/jolly-ui/blob/main/src/registry/new-york/ui/button.tsx
 // https://github.com/adobe/react-spectrum/blob/main/packages/react-aria-components/src/Button.tsx
 // https://github.com/mehdibha/dotUI/blob/main/src/lib/components/core/default/button.tsx
 // https://github.com/irsyadadl/justd/blob/main/components/ui/button.tsx
@@ -13,70 +12,48 @@ import { focusRing } from './oui-base'
 // https://github.com/nextui-org/tailwind-variants/issues/209 : compoundVariants does not recognize falsy boolean variant
 // https://github.com/nextui-org/tailwind-variants/pull/210 : fix: treat undefined value for compoundVariants as false
 
-export interface OuiButtonProps extends ButtonProps {
-  variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost'
-  size?: 'default' | 'sm' | 'lg' | 'icon'
-}
-
 export const ouiButton = tv({
   extend: focusRing,
-  base: 'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
+  // shadcn: 'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  // focus-visible:* is in focusRing
+  base: 'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   variants: {
     variant: {
-      default: 'bg-primary text-primary-foreground',
-      destructive: 'bg-destructive text-destructive-foreground',
+      default:
+        'bg-primary text-primary-foreground shadow data-[hovered]:bg-primary/90',
+      destructive:
+        'bg-destructive text-destructive-foreground shadow-sm data-[hovered]:bg-destructive/90',
       outline:
-        'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
-      secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-      ghost: 'hover:bg-accent hover:text-accent-foreground',
+        'border border-input bg-background shadow-sm data-[hovered]:bg-accent data-[hovered]:text-accent-foreground',
+      secondary:
+        'bg-secondary text-secondary-foreground shadow-sm data-[hovered]:bg-secondary/80',
+      ghost: 'data-[hovered]:bg-accent data-[hovered]:text-accent-foreground',
+      link: 'text-primary underline-offset-4 data-[hovered]:underline',
     },
     size: {
-      default: 'h-10 px-4 py-2',
-      sm: 'h-9 rounded-md px-3',
-      lg: 'h-11 rounded-md px-8',
-      icon: 'h-10 w-10',
-    },
-    isDisabled: {
-      true: 'pointer-events-none opacity-50',
+      default: 'h-9 px-4 py-2',
+      sm: 'h-8 rounded-md px-3 text-xs',
+      lg: 'h-10 rounded-md px-8',
+      icon: 'h-9 w-9',
     },
   },
-  compoundVariants: [
-    {
-      variant: 'default',
-      isHovered: true,
-      class: 'bg-primary/90',
-    },
-    {
-      variant: 'destructive',
-      isHovered: true,
-      class: 'bg-destructive/90',
-    },
-    {
-      variant: ['outline', 'ghost'],
-      isHovered: true,
-      class: 'bg-accent text-accent-foreground',
-    },
-    {
-      variant: 'secondary',
-      isHovered: true,
-      class: 'bg-secondary/80',
-    },
-  ],
   defaultVariants: {
     variant: 'default',
     size: 'default',
   },
 })
 
+export interface OuiButtonProps
+  extends ButtonProps,
+    VariantProps<typeof ouiButton> {}
+
 export function OuiButton(props: OuiButtonProps) {
   return (
-    <RacButton
+    <Button
       {...props}
       className={composeRenderProps(props.className, (className, renderProps) =>
         ouiButton({
           ...renderProps,
-          variant: props.variant,
-          size: props.size,
           className,
         })
       )}
