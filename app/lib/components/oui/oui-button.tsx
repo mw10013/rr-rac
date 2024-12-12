@@ -60,3 +60,4 @@ export function OuiButton(props: OuiButtonProps) {
     />
   )
 }
+OuiButton.displayName = 'OuiButton'
