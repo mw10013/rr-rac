@@ -16,7 +16,8 @@ export const ouiButton = tv({
   extend: focusRing,
   // shadcn: 'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   // focus-visible:* is in focusRing
-  base: 'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  // base: 'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  base: 'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   variants: {
     variant: {
       default:
@@ -36,6 +37,9 @@ export const ouiButton = tv({
       lg: 'h-10 rounded-md px-8',
       icon: 'h-9 w-9',
     },
+    isDisabled: {
+      true: 'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+    },
   },
   defaultVariants: {
     variant: 'default',
@@ -47,14 +51,21 @@ export interface OuiButtonProps
   extends ButtonProps,
     VariantProps<typeof ouiButton> {}
 
-export function OuiButton(props: OuiButtonProps) {
+export function OuiButton({
+  className,
+  variant,
+  size,
+  ...props
+}: OuiButtonProps) {
   return (
     <Button
       {...props}
-      className={composeRenderProps(props.className, (className, renderProps) =>
+      className={composeRenderProps(className, (className, renderProps) =>
         ouiButton({
           ...renderProps,
           className,
+          variant,
+          size,
         })
       )}
     />

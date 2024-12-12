@@ -23,12 +23,12 @@ export const focusRing = tv({
   // base: 'ring-offset-background transition-colors',
   // no transition-colors since no transition duration.
   // focus-visible:outline-none and focus-visible:outline-none data-[focus-visible]:outline-none to reset browser and rac.
-  base: 'transition-colors focus-visible:outline-none data-[focus-visible]:outline-none data-[focus-visible]:ring-1 data-[focus-visible]:ring-ring ',
-  // variants: {
-  //   isFocusVisible: {
-  //     true: 'outline-none ring-2 ring-ring ring-offset-2',
-  //   },
-  // },
+  // base: 'transition-colors focus-visible:outline-none data-[focus-visible]:outline-none data-[focus-visible]:ring-1 data-[focus-visible]:ring-ring ',
+  variants: {
+    isFocusVisible: {
+      true: 'data-[focus-visible]:outline-none data-[focus-visible]:ring-1 data-[focus-visible]:ring-ring',
+    },
+  },
 })
 
 export function composeTailwindRenderProps<T>(
