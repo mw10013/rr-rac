@@ -1,3 +1,5 @@
+- Do not use `tailwindcss-react-aria-components` (https://react-spectrum.adobe.com/react-aria/styling.html#plugin) so we don't have that dependency.
+
 - https://ui.shadcn.com/r
 - https://ui.shadcn.com/r/styles/new-york/button.json
 - https://shadcn.batchtool.com/components
