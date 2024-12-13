@@ -42,11 +42,11 @@ export function OuiCheckboxGroup(props: OuiCheckboxGroupProps) {
 
 export const ouiCheckbox = tv({
   // shadcn:"peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
-  base: 'group flex items-center gap-2 text-sm',
+  base: 'group flex items-center gap-2',
   variants: {
-    isDisabled: {
-      true: 'data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70',
-    },
+    // isDisabled: {
+    //   true: 'data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70',
+    // },
   },
 })
 
@@ -63,7 +63,7 @@ export const ouiCheckboxBox = tv({
     },
     isDisabled: {
       // true: 'group-data-[disabled]:cursor-not-allowed group-data-[disabled]:opacity-50',
-      true: 'group-data-[disabled]:cursor-not-allowed group-data-[disabled]:opacity-[0.714]',
+      true: 'group-data-[disabled]:cursor-not-allowed group-data-[disabled]:opacity-50',
     },
   },
 })
@@ -97,7 +97,9 @@ export function OuiCheckbox(props: OuiCheckboxProps) {
               <Check aria-hidden className={ouiCehckboxIcon} />
             ) : null}
           </div>
-          {props.children}
+          <span className="text-sm group-data-[disabled]:cursor-not-allowed group-data-[disabled]:opacity-70">
+            {props.children}
+          </span>
         </>
       )}
     </Checkbox>
