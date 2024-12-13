@@ -7,6 +7,10 @@
 
 - VSCode 1.91 breaks code actions: https://github.com/tailwindlabs/tailwindcss-intellisense/issues/1018
 
+## TODO
+- checkbox: interminate, invalid, readonly, description, revisit span/label text
+- checkboxgroup
+
 # Welcome to React Router!
 
 A modern, production-ready template for building full-stack React applications using React Router.

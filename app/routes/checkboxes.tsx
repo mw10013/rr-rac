@@ -22,6 +22,7 @@ export default function RouteComponent() {
           Accept terms and conditions
         </label>
       </div>
+      <OuiCheckbox isIndeterminate>Accept terms and conditions</OuiCheckbox>
     </div>
   )
 }
