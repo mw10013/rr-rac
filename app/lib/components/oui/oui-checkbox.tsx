@@ -40,16 +40,6 @@ export function OuiCheckboxGroup(props: OuiCheckboxGroupProps) {
   )
 }
 
-export const ouiCheckbox = tv({
-  // shadcn:"peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
-  base: 'group flex items-center gap-2',
-  variants: {
-    // isDisabled: {
-    //   true: 'data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70',
-    // },
-  },
-})
-
 // shadcn: "peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
 export const ouiCheckboxBox = tv({
   extend: focusRing,
@@ -67,7 +57,7 @@ export const ouiCheckboxBox = tv({
   },
 })
 
-const ouiCheckboxIcon = 'h-4 w-4'
+export const ouiCheckboxIcon = 'h-4 w-4'
 
 // Pattern for Reusable Button Wrapper: https://github.com/adobe/react-spectrum/discussions/7511
 export interface OuiCheckboxProps extends Omit<CheckboxProps, 'children'> {
@@ -75,13 +65,16 @@ export interface OuiCheckboxProps extends Omit<CheckboxProps, 'children'> {
   children?: ReactNode
 }
 
-// https://github.com/adobe/react-spectrum/blob/main/packages/%40react-spectrum/s2/src/Checkbox.tsx
+// shadcn structures a checkbox with <button> and its label is outside of the checkbox (button).
+// rac structures a checkbox with <label>
+// spectrum2: https://github.com/adobe/react-spectrum/blob/main/packages/%40react-spectrum/s2/src/Checkbox.tsx
 export function OuiCheckbox(props: OuiCheckboxProps) {
   return (
     <Checkbox
       {...props}
-      className={composeRenderProps(props.className, (className, renderProps) =>
-        ouiCheckbox({ ...renderProps, className })
+      className={composeTailwindRenderProps(
+        props.className,
+        'group flex items-center gap-2'
       )}>
       {({ isSelected, isIndeterminate, ...renderProps }) => (
         <>

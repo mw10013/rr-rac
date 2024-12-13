@@ -5,4 +5,5 @@ export default [
   index('routes/home.tsx'),
   route('buttons', 'routes/buttons.tsx'),
   route('checkboxes', 'routes/checkboxes.tsx'),
+  route('switches', 'routes/switches.tsx'),
 ] satisfies RouteConfig
