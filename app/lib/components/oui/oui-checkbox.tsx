@@ -41,6 +41,8 @@ export function OuiCheckboxGroup(props: OuiCheckboxGroupProps) {
 }
 
 export const ouiCheckbox = tv({
+  // shadcn:"peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
+  // base: 'group flex items-center gap-2 text-sm transition',
   base: 'group flex items-center gap-2 text-sm transition',
   variants: {
     isDisabled: {
@@ -50,34 +52,39 @@ export const ouiCheckbox = tv({
   },
 })
 
+// shadcn: "peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
 export const ouiCheckboxBox = tv({
   extend: focusRing,
-  base: 'flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border-2 transition',
+  base: 'h-4 w-4 shrink-0 rounded-sm border border-primary shadow flex items-center justify-center',
   variants: {
+    // isSelected: {
+    //   false:
+    //     'dark:[--color:colors.zinc-400)] border-[--color] bg-white [--color:theme(colors.gray.400)] group-pressed:[--color:theme(colors.gray.500)] dark:bg-zinc-900 dark:group-pressed:[--color:theme(colors.zinc.300)]',
+    //   true: 'border-[--color] bg-[--color] [--color:theme(colors.gray.700)] group-pressed:[--color:theme(colors.gray.800)] dark:[--color:theme(colors.slate.300)] dark:group-pressed:[--color:theme(colors.slate.200)] forced-colors:![--color:Highlight]',
+    // },
+    // isInvalid: {
+    //   true: '[--color:theme(colors.red.700)] group-pressed:[--color:theme(colors.red.800)] dark:[--color:theme(colors.red.600)] dark:group-pressed:[--color:theme(colors.red.700)] forced-colors:![--color:Mark]',
+    // },
     isSelected: {
-      false:
-        'dark:[--color:colors.zinc-400)] border-[--color] bg-white [--color:theme(colors.gray.400)] group-pressed:[--color:theme(colors.gray.500)] dark:bg-zinc-900 dark:group-pressed:[--color:theme(colors.zinc.300)]',
-      true: 'border-[--color] bg-[--color] [--color:theme(colors.gray.700)] group-pressed:[--color:theme(colors.gray.800)] dark:[--color:theme(colors.slate.300)] dark:group-pressed:[--color:theme(colors.slate.200)] forced-colors:![--color:Highlight]',
-    },
-    isInvalid: {
-      true: '[--color:theme(colors.red.700)] group-pressed:[--color:theme(colors.red.800)] dark:[--color:theme(colors.red.600)] dark:group-pressed:[--color:theme(colors.red.700)] forced-colors:![--color:Mark]',
+      true: 'group-data-[selected]:bg-primary group-data-[selected]:text-primary-foreground',
     },
     isDisabled: {
-      true: '[--color:theme(colors.gray.200)] dark:[--color:theme(colors.zinc.700)] forced-colors:![--color:GrayText]',
+      true: 'data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50',
     },
   },
 })
 
 const iconStyles =
-  'w-4 h-4 text-white group-disabled:text-gray-400 dark:text-slate-900 dark:group-disabled:text-slate-600 forced-colors:text-[HighlightText]'
+  // 'w-4 h-4 text-white group-disabled:text-gray-400 dark:text-slate-900 dark:group-disabled:text-slate-600 forced-colors:text-[HighlightText]'
+  'h-4 w-4'
 
 // Pattern for Reusable Button Wrapper: https://github.com/adobe/react-spectrum/discussions/7511
-// https://github.com/adobe/react-spectrum/blob/326f48154e301edab425c8198c5c3af72422462b/packages/%40react-spectrum/s2/src/Checkbox.tsx#L39
 export interface OuiCheckboxProps extends Omit<CheckboxProps, 'children'> {
   /** The label for the element. */
   children?: ReactNode
 }
 
+// https://github.com/adobe/react-spectrum/blob/main/packages/%40react-spectrum/s2/src/Checkbox.tsx
 export function OuiCheckbox(props: OuiCheckboxProps) {
   return (
     <Checkbox
