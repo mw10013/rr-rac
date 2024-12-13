@@ -40,7 +40,7 @@ export function OuiCheckboxGroup(props: OuiCheckboxGroupProps) {
   )
 }
 
-const checkboxStyles = tv({
+export const ouiCheckbox = tv({
   base: 'group flex items-center gap-2 text-sm transition',
   variants: {
     isDisabled: {
@@ -50,7 +50,7 @@ const checkboxStyles = tv({
   },
 })
 
-const boxStyles = tv({
+export const ouiCheckboxBox = tv({
   extend: focusRing,
   base: 'flex h-5 w-5 flex-shrink-0 items-center justify-center rounded border-2 transition',
   variants: {
@@ -71,17 +71,24 @@ const boxStyles = tv({
 const iconStyles =
   'w-4 h-4 text-white group-disabled:text-gray-400 dark:text-slate-900 dark:group-disabled:text-slate-600 forced-colors:text-[HighlightText]'
 
-export function OuiCheckbox(props: CheckboxProps) {
+// Pattern for Reusable Button Wrapper: https://github.com/adobe/react-spectrum/discussions/7511
+// https://github.com/adobe/react-spectrum/blob/326f48154e301edab425c8198c5c3af72422462b/packages/%40react-spectrum/s2/src/Checkbox.tsx#L39
+export interface OuiCheckboxProps extends Omit<CheckboxProps, 'children'> {
+  /** The label for the element. */
+  children?: ReactNode
+}
+
+export function OuiCheckbox(props: OuiCheckboxProps) {
   return (
     <Checkbox
       {...props}
       className={composeRenderProps(props.className, (className, renderProps) =>
-        checkboxStyles({ ...renderProps, className })
+        ouiCheckbox({ ...renderProps, className })
       )}>
       {({ isSelected, isIndeterminate, ...renderProps }) => (
         <>
           <div
-            className={boxStyles({
+            className={ouiCheckboxBox({
               isSelected: isSelected || isIndeterminate,
               ...renderProps,
             })}>
