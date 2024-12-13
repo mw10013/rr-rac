@@ -62,13 +62,12 @@ export const ouiCheckboxBox = tv({
       true: 'group-data-[selected]:bg-primary group-data-[selected]:text-primary-foreground',
     },
     isDisabled: {
-      // true: 'group-data-[disabled]:cursor-not-allowed group-data-[disabled]:opacity-50',
       true: 'group-data-[disabled]:cursor-not-allowed group-data-[disabled]:opacity-50',
     },
   },
 })
 
-const ouiCehckboxIcon = 'h-4 w-4'
+const ouiCheckboxIcon = 'h-4 w-4'
 
 // Pattern for Reusable Button Wrapper: https://github.com/adobe/react-spectrum/discussions/7511
 export interface OuiCheckboxProps extends Omit<CheckboxProps, 'children'> {
@@ -87,14 +86,15 @@ export function OuiCheckbox(props: OuiCheckboxProps) {
       {({ isSelected, isIndeterminate, ...renderProps }) => (
         <>
           <div
+            data-focus-visible={renderProps.isFocusVisible}
             className={ouiCheckboxBox({
               isSelected: isSelected || isIndeterminate,
               ...renderProps,
             })}>
             {isIndeterminate ? (
-              <Minus aria-hidden className={ouiCehckboxIcon} />
+              <Minus aria-hidden className={ouiCheckboxIcon} />
             ) : isSelected ? (
-              <Check aria-hidden className={ouiCehckboxIcon} />
+              <Check aria-hidden className={ouiCheckboxIcon} />
             ) : null}
           </div>
           <span className="text-sm group-data-[disabled]:cursor-not-allowed group-data-[disabled]:opacity-70">
