@@ -23,23 +23,14 @@ function OuiInputForm() {
   return (
     <OuiForm className="w-2/3 border p-6">
       <OuiTextField
+        name="username"
+        type="text"
         label="Username"
         description="This is your public display name."
+        placeholder="shadcn"
+        isRequired
       />
-      <OuiButton type="submit">Submit</OuiButton>
-    </OuiForm>
-  )
-}
-
-function OuiInputForm1() {
-  return (
-    <OuiForm className="w-2/3 border p-6">
-      <OuiTextField
-        name="email"
-        type="email"
-        label="Username"
-        description="This is your public display name."
-      />
+      <OuiTextField name="email" type="email" label="Email" isRequired />
       <OuiButton type="submit">Submit</OuiButton>
     </OuiForm>
   )
@@ -49,6 +40,7 @@ const FormSchema = z.object({
   username: z.string().min(2, {
     message: 'Username must be at least 2 characters.',
   }),
+  email: z.string().email(),
 })
 
 function ShadcnInputForm() {
@@ -91,6 +83,19 @@ function ShadcnInputForm() {
             </FormItem>
           )}
         />
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <Button type="submit">Submit</Button>
       </form>
     </Form>
@@ -101,7 +106,6 @@ export default function RouteComponent() {
   return (
     <div className="container flex flex-col items-center justify-center gap-4 p-6">
       <OuiInputForm />
-      <OuiInputForm1 />
       <ShadcnInputForm />
     </div>
   )
