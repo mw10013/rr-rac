@@ -21,8 +21,8 @@ import { toast } from '~/lib/hooks/use-toast'
 
 function OuiInputForm() {
   return (
-    <OuiForm>
-      <OuiTextField label="Username" />
+    <OuiForm className="w-2/3 border p-6">
+      <OuiTextField label="Username" description='This is your public display name.'/>
       <OuiButton type="submit">Submit</OuiButton>
     </OuiForm>
   )
@@ -55,7 +55,9 @@ function ShadcnInputForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-2/3 space-y-6 border p-6">
         <FormField
           control={form.control}
           name="username"
@@ -80,7 +82,7 @@ function ShadcnInputForm() {
 
 export default function RouteComponent() {
   return (
-    <div className="container p-6">
+    <div className="container flex flex-col items-center justify-center gap-4 p-6">
       <OuiInputForm />
       <ShadcnInputForm />
     </div>

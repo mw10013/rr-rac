@@ -32,7 +32,10 @@ export function OuiDescription(props: TextProps) {
     <Text
       {...props}
       slot="description"
-      className={twMerge('text-sm text-gray-600', props.className)}
+      className={twMerge(
+        'text-[0.8rem] text-muted-foreground',
+        props.className
+      )}
     />
   )
 }

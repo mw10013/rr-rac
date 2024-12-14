@@ -36,10 +36,7 @@ export function OuiTextField({
   return (
     <TextField
       {...props}
-      className={composeTailwindRenderProps(
-        props.className,
-        'flex flex-col gap-1'
-      )}>
+      className={composeTailwindRenderProps(props.className, 'space-y-2')}>
       {label && <OuiLabel>{label}</OuiLabel>}
       <OuiInput className={inputStyles} placeholder={placeholder} />
       {description && <OuiDescription>{description}</OuiDescription>}
