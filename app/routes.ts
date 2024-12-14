@@ -6,4 +6,7 @@ export default [
   route('buttons', 'routes/buttons.tsx'),
   route('checkboxes', 'routes/checkboxes.tsx'),
   route('switches', 'routes/switches.tsx'),
+  route('text-fields', 'routes/text-fields.tsx'),
+  route('shadcn-form', 'routes/shadcn-form.tsx'),
+  route('forms', 'routes/forms.tsx'),
 ] satisfies RouteConfig

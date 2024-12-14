@@ -11,26 +11,6 @@ export function Description(props: TextProps) {
   return <Text {...props} slot="description" className={twMerge('text-sm text-gray-600', props.className)} />;
 }
 
-/*************  ✨ Codeium Command ⭐  *************/
-/**
- * A component that renders an error message for a form field.
- *
- * @param props - A `FieldErrorProps` object with the following properties:
- *   - `className` - Additional CSS classes to apply to the error message.
- *   - `children` - The error message to display.
- *   - `state` - The validation state of the field. If `state` is `"invalid"`, the error message will be displayed.
- *
- * The component will be rendered with the following styles:
- *   - `text-sm`
- *   - `text-red-600`
- *   - `forced-colors:text-[Mark]`
- *
- * The component will also be wrapped in a `span` element with the following aria attributes:
- *   - `role="alert"`
- *   - `aria-live="assertive"`
- *   - `aria-atomic="true"`
- */
-/******  82a7ed5d-2106-403a-b991-ba1fbcb7f122  *******/
 export function FieldError(props: FieldErrorProps) {
   return <RACFieldError {...props} className={composeTailwindRenderProps(props.className, 'text-sm text-red-600 forced-colors:text-[Mark]')} />
 }
