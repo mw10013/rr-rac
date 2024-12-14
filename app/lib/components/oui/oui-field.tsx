@@ -7,25 +7,24 @@ import type {
 } from 'react-aria-components'
 import {
   composeRenderProps,
-  Group,
-  Label,
   FieldError,
+  Group,
   Input,
+  Label,
   Text,
 } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 import { tv } from 'tailwind-variants'
 import { composeTailwindRenderProps, focusRing } from './oui-base'
 
-// shadcn label: text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70
-// rac: text-sm text-gray-500 dark:text-zinc-400 font-medium cursor-default w-fit
+// shadcn: text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70
+// group helps compose with rac components that structure with a <label>. Eg. checkbox and switch.
+// TODO: ouiLabel need group-data-[disabled] or peer-data-[disabled]?
+export const ouiLabel =
+  'group text-sm font-medium leading-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70'
+
 export function OuiLabel(props: LabelProps) {
-  return (
-    <Label
-      {...props}
-      className={twMerge('text-sm font-medium leading-none', props.className)}
-    />
-  )
+  return <Label {...props} className={twMerge(ouiLabel, props.className)} />
 }
 
 export function OuiDescription(props: TextProps) {

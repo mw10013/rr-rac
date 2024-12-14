@@ -11,7 +11,12 @@ import {
   composeRenderProps,
 } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
-import { OuiDescription, OuiFieldError, OuiLabel } from '././oui-field'
+import {
+  OuiDescription,
+  OuiFieldError,
+  OuiLabel,
+  ouiLabel,
+} from '././oui-field'
 import { composeTailwindRenderProps, focusRing } from './oui-base'
 
 export interface OuiCheckboxGroupProps
@@ -51,9 +56,7 @@ export const ouiCheckboxBox = tv({
     isSelected: {
       true: 'group-data-[selected]:bg-primary group-data-[selected]:text-primary-foreground',
     },
-    isDisabled: {
-      true: 'group-data-[disabled]:cursor-not-allowed group-data-[disabled]:opacity-50',
-    },
+    // isDisabled handled by <Checkbox>
   },
 })
 
@@ -65,8 +68,8 @@ export interface OuiCheckboxProps extends Omit<CheckboxProps, 'children'> {
   children?: ReactNode
 }
 
-// shadcn structures a checkbox with <button> and its label is outside of the checkbox (button).
 // rac structures a checkbox with <label>
+// shadcn structures a checkbox with <button> and its label is outside of the checkbox (button).
 // spectrum2: https://github.com/adobe/react-spectrum/blob/main/packages/%40react-spectrum/s2/src/Checkbox.tsx
 export function OuiCheckbox(props: OuiCheckboxProps) {
   return (
@@ -74,7 +77,7 @@ export function OuiCheckbox(props: OuiCheckboxProps) {
       {...props}
       className={composeTailwindRenderProps(
         props.className,
-        'group flex items-center gap-2'
+        `${ouiLabel} flex items-center gap-2`
       )}>
       {({ isSelected, isIndeterminate, ...renderProps }) => (
         <>
@@ -90,9 +93,7 @@ export function OuiCheckbox(props: OuiCheckboxProps) {
               <Check aria-hidden className={ouiCheckboxIcon} />
             ) : null}
           </div>
-          <span className="text-sm group-data-[disabled]:cursor-not-allowed group-data-[disabled]:opacity-70">
-            {props.children}
-          </span>
+          {props.children}
         </>
       )}
     </Checkbox>
