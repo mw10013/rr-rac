@@ -27,11 +27,13 @@ export function OuiLabel(props: LabelProps) {
   return <Label {...props} className={twMerge(ouiLabel, props.className)} />
 }
 
+// shadcn FormDescription: text-[0.8rem] text-muted-foreground
 export function OuiDescription(props: TextProps) {
   return (
     <Text
-      {...props}
+      elementType="p"
       slot="description"
+      {...props}
       className={twMerge(
         'text-[0.8rem] text-muted-foreground',
         props.className
@@ -39,18 +41,25 @@ export function OuiDescription(props: TextProps) {
     />
   )
 }
+OuiDescription.displayName = 'OuiDescription'
 
+// shadcn FormMessage: text-[0.8rem] font-medium text-destructive
 export function OuiFieldError(props: FieldErrorProps) {
   return (
-    <FieldError
-      {...props}
-      className={composeTailwindRenderProps(
-        props.className,
-        'text-sm text-red-600 forced-colors:text-[Mark]'
-      )}
-    />
+    // FieldError structures with a <span> and does not have elementType like Text.
+    // Wrap with <p> to get closer to shadcn
+    <p>
+      <FieldError
+        {...props}
+        className={composeTailwindRenderProps(
+          props.className,
+          'text-[0.8rem] font-medium text-destructive'
+        )}
+      />
+    </p>
   )
 }
+OuiFieldError.displayName = 'OuiFieldError'
 
 // shadcn input: flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background
 // file:border-0 file:bg-transparent file:text-sm file:font-medium

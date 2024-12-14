@@ -22,7 +22,24 @@ import { toast } from '~/lib/hooks/use-toast'
 function OuiInputForm() {
   return (
     <OuiForm className="w-2/3 border p-6">
-      <OuiTextField label="Username" description='This is your public display name.'/>
+      <OuiTextField
+        label="Username"
+        description="This is your public display name."
+      />
+      <OuiButton type="submit">Submit</OuiButton>
+    </OuiForm>
+  )
+}
+
+function OuiInputForm1() {
+  return (
+    <OuiForm className="w-2/3 border p-6">
+      <OuiTextField
+        name="email"
+        type="email"
+        label="Username"
+        description="This is your public display name."
+      />
       <OuiButton type="submit">Submit</OuiButton>
     </OuiForm>
   )
@@ -84,6 +101,7 @@ export default function RouteComponent() {
   return (
     <div className="container flex flex-col items-center justify-center gap-4 p-6">
       <OuiInputForm />
+      <OuiInputForm1 />
       <ShadcnInputForm />
     </div>
   )
