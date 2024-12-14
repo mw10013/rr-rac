@@ -3,6 +3,7 @@ import React from 'react'
 import { Switch } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 import { composeTailwindRenderProps, focusRing } from './oui-base'
+import { ouiLabel } from './oui-field'
 
 export interface OuiSwitchProps extends Omit<SwitchProps, 'children'> {
   children?: React.ReactNode
@@ -18,14 +19,15 @@ const ouiSwitchTrack = tv({
       true: 'bg-primary',
     },
     isDisabled: {
-      true: 'group-data-[disabled]:cursor-not-allowed group-data-[disabled]:opacity-50',
+      // shadcn uses disabled:opacity-50. Use opacity-[0.714] since parent (ouiLabel) uses opacity-70
+      true: 'group-data-[disabled]:cursor-not-allowed group-data-[disabled]:opacity-[0.714]',
     },
   },
 })
 
 // shadcn: "pointer-events-none block h-4 w-4 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0"
 const ouiSwitchThumb = tv({
-  base: 'pointer-events-none block h-4 w-4 rounded-full bg-background shadow-lg ring-0 transition-transform',
+  base: 'pointer-events-none block size-4 rounded-full bg-background shadow-lg ring-0 transition-transform',
   variants: {
     isSelected: {
       false: 'translate-x-0',
@@ -34,27 +36,22 @@ const ouiSwitchThumb = tv({
   },
 })
 
-// rac structures a switch in a <label> with a hidden <span> containing an <input> of type checkbox.
-// The text of the label can be in the children of the switch.
+// rac structures a switch with a <label>
 // shadcn structures a switch in a <button>. Any <label> is a peer to the switch.
-// Shadcn label: text-sm font-medium leading-none
-// peer-disabled:cursor-not-allowed peer-disabled:opacity-70
 export function OuiSwitch({ children, ...props }: OuiSwitchProps) {
   return (
     <Switch
       {...props}
       className={composeTailwindRenderProps(
         props.className,
-        'group flex items-center gap-2'
+        `${ouiLabel} flex items-center gap-2`
       )}>
       {(renderProps) => (
         <>
           <div className={ouiSwitchTrack(renderProps)}>
             <span className={ouiSwitchThumb(renderProps)} />
           </div>
-          <span className="text-sm font-medium leading-none group-data-[disabled]:cursor-not-allowed group-data-[disabled]:opacity-70">
-            {children}
-          </span>
+          {children}
         </>
       )}
     </Switch>
