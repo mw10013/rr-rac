@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { OuiButton } from '~/lib/components/oui/oui-button'
 import { OuiForm } from '~/lib/components/oui/oui-form'
-import { OuiTextField } from '~/lib/components/oui/oui-text-field'
+import { OuiTextFieldEx } from '~/lib/components/oui/oui-text-field'
 import { Button } from '~/lib/components/ui/button'
 import {
   Form,
@@ -22,7 +22,7 @@ import { toast } from '~/lib/hooks/use-toast'
 function OuiInputForm() {
   return (
     <OuiForm className="w-2/3 border p-6">
-      <OuiTextField
+      <OuiTextFieldEx
         name="username"
         type="text"
         label="Username"
@@ -30,7 +30,7 @@ function OuiInputForm() {
         placeholder="shadcn"
         isRequired
       />
-      <OuiTextField name="email" type="email" label="Email" isRequired />
+      <OuiTextFieldEx name="email" type="email" label="Email" isRequired />
       <OuiButton type="submit">Submit</OuiButton>
     </OuiForm>
   )

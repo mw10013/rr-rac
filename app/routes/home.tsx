@@ -2,7 +2,7 @@ import type { Route } from './+types/home'
 import { OuiButton } from '~/lib/components/oui/oui-button'
 import { OuiCheckbox } from '~/lib/components/oui/oui-checkbox'
 import { OuiSwitch } from '~/lib/components/oui/oui-switch'
-import { OuiTextField } from '~/lib/components/oui/oui-text-field'
+import { OuiTextFieldEx } from '~/lib/components/oui/oui-text-field'
 import { StarterComponents } from '~/lib/components/starter-components'
 import { Button } from '~/lib/components/ui/button'
 import { Checkbox } from '~/lib/components/ui/checkbox'
@@ -20,15 +20,15 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   return (
     <div className="container flex flex-col items-center justify-center gap-4 p-6">
-      <OuiTextField label="Email" placeholder="Email" />
+      <OuiTextFieldEx label="Email" placeholder="Email" />
       <div className="grid w-full max-w-sm items-center gap-1.5">
         <Label htmlFor="email">Email</Label>
         <Input type="email" id="email" placeholder="Email" />
       </div>
-      <OuiTextField isDisabled placeholder="Email" />
+      <OuiTextFieldEx isDisabled placeholder="Email" />
       <Input disabled type="email" placeholder="Email" />
       <div className="flex w-full max-w-sm items-center space-x-2">
-        <OuiTextField placeholder="Email" />
+        <OuiTextFieldEx placeholder="Email" />
         <Button type="submit">Subscribe</Button>
       </div>
       <div className="flex w-full max-w-sm items-center space-x-2">
