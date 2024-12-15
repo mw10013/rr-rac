@@ -5,11 +5,7 @@ import type {
   ValidationResult,
 } from 'react-aria-components'
 import { Check, Minus } from 'lucide-react'
-import {
-  Checkbox,
-  CheckboxGroup,
-  composeRenderProps,
-} from 'react-aria-components'
+import { Checkbox, CheckboxGroup } from 'react-aria-components'
 import { tv } from 'tailwind-variants'
 import {
   OuiDescription,
@@ -27,7 +23,13 @@ export interface OuiCheckboxGroupProps
   errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
-export function OuiCheckboxGroup(props: OuiCheckboxGroupProps) {
+export function OuiCheckboxGroup({
+  label,
+  children,
+  description,
+  errorMessage,
+  ...props
+}: OuiCheckboxGroupProps) {
   return (
     <CheckboxGroup
       {...props}
@@ -35,12 +37,10 @@ export function OuiCheckboxGroup(props: OuiCheckboxGroupProps) {
         props.className,
         'flex flex-col gap-2'
       )}>
-      <OuiLabel>{props.label}</OuiLabel>
-      {props.children}
-      {props.description && (
-        <OuiDescription>{props.description}</OuiDescription>
-      )}
-      <OuiFieldError>{props.errorMessage}</OuiFieldError>
+      <OuiLabel>{label}</OuiLabel>
+      {children}
+      {description && <OuiDescription>{description}</OuiDescription>}
+      <OuiFieldError>{errorMessage}</OuiFieldError>
     </CheckboxGroup>
   )
 }
