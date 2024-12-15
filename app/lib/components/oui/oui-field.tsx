@@ -99,18 +99,28 @@ export function OuiFieldGroup(props: GroupProps) {
 }
 
 // shadcn input: flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm
-// file:border-0 file:bg-transparent file:text-sm file:font-medium
-// placeholder:text-muted-foreground
-// focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
-// disabled:cursor-not-allowed disabled:opacity-50
-export function OuiInput(props: InputProps) {
+// TODO: ouiInput: handle file: styles
+export const ouiInput = tv({
+  extend: focusRing,
+  base: 'flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors placeholder:text-muted-foreground md:text-sm',
+  variants: {
+    isDisabled: {
+      true: 'data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50',
+    },
+  },
+})
+
+export function OuiInput({ className, ...props }: InputProps) {
   return (
     <Input
       {...props}
-      className={composeTailwindRenderProps(
-        props.className,
-        'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground'
+      className={composeRenderProps(className, (className, renderProps) =>
+        ouiInput({
+          ...renderProps,
+          className,
+        })
       )}
     />
   )
 }
+OuiInput.displayName = 'OuiInput'
