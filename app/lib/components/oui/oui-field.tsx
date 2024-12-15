@@ -1,9 +1,11 @@
 import type {
   FieldErrorProps,
+  FieldErrorRenderProps,
   GroupProps,
   InputProps,
   LabelProps,
   TextProps,
+  ValidationResult,
 } from 'react-aria-components'
 import {
   composeRenderProps,
