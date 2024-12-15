@@ -31,6 +31,13 @@ function OuiInputForm() {
         isRequired
       />
       <OuiTextFieldEx name="email" type="email" label="Email" isRequired />
+      <OuiTextFieldEx
+        name="reserved"
+        type="text"
+        label="Reserved"
+        isDisabled
+        placeholder="This field is reserved."
+      />
       <OuiButton type="submit">Submit</OuiButton>
     </OuiForm>
   )
@@ -41,6 +48,7 @@ const FormSchema = z.object({
     message: 'Username must be at least 2 characters.',
   }),
   email: z.string().email(),
+  reserved: z.string().default('Reserved'),
 })
 
 function ShadcnInputForm() {
@@ -91,6 +99,23 @@ function ShadcnInputForm() {
               <FormLabel>Email</FormLabel>
               <FormControl>
                 <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="reserved"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Reserved</FormLabel>
+              <FormControl>
+                <Input
+                  {...field}
+                  placeholder="This field is reserved."
+                  disabled
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
