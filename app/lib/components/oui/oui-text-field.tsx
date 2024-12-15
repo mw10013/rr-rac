@@ -7,7 +7,7 @@ export function OuiTextField(props: TextFieldProps) {
   return (
     <TextField
       {...props}
-      className={composeTailwindRenderProps(props.className, 'space-y-2')}
+      className={composeTailwindRenderProps(props.className, 'group space-y-2')}
     />
   )
 }
@@ -27,18 +27,10 @@ export function OuiTextFieldEx({
 }: OuiTextFieldExProps) {
   return (
     <OuiTextField {...props}>
-      {({ isInvalid }) => (
-        <>
-          {label && (
-            <OuiLabel className={isInvalid ? 'text-destructive' : ''}>
-              {label}
-            </OuiLabel>
-          )}
-          <OuiInput placeholder={placeholder} />
-          {description && <OuiDescription>{description}</OuiDescription>}
-          <OuiFieldError />
-        </>
-      )}
+      {label && <OuiLabel>{label}</OuiLabel>}
+      <OuiInput placeholder={placeholder} />
+      {description && <OuiDescription>{description}</OuiDescription>}
+      <OuiFieldError />
     </OuiTextField>
   )
 }

@@ -21,7 +21,7 @@ import { composeTailwindRenderProps, focusRing } from './oui-base'
 // group helps compose with rac components that structure with a <label>. Eg. checkbox and switch.
 // TODO: ouiLabel need group-data-[disabled] or peer-data-[disabled]?
 export const ouiLabel =
-  'group text-sm font-medium leading-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70'
+  'group text-sm font-medium leading-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70 group-data-[invalid]:text-destructive'
 
 export function OuiLabel(props: LabelProps) {
   return <Label {...props} className={twMerge(ouiLabel, props.className)} />
