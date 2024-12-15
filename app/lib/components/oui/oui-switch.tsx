@@ -38,6 +38,7 @@ const ouiSwitchThumb = tv({
 
 // rac structures a switch with a <label>
 // shadcn structures a switch in a <button>. Any <label> is a peer to the switch.
+// TODO: OuiSwitch focus ring
 export function OuiSwitch({ children, ...props }: OuiSwitchProps) {
   return (
     <Switch

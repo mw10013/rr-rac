@@ -74,13 +74,17 @@ export interface OuiCheckboxProps extends Omit<CheckboxProps, 'children'> {
 // rac structures a checkbox with <label>
 // shadcn structures a checkbox with <button> and its label is outside of the checkbox (button).
 // spectrum2: https://github.com/adobe/react-spectrum/blob/main/packages/%40react-spectrum/s2/src/Checkbox.tsx
-export function OuiCheckbox(props: OuiCheckboxProps) {
+export function OuiCheckbox({
+  className,
+  children,
+  ...props
+}: OuiCheckboxProps) {
   return (
     <Checkbox
       {...props}
       className={composeTailwindRenderProps(
-        props.className,
-        `${ouiLabel} flex items-center gap-2`
+        className,
+        `${ouiLabel} flex items-center space-x-2`
       )}>
       {({ isSelected, isIndeterminate, ...renderProps }) => (
         <>
@@ -96,7 +100,7 @@ export function OuiCheckbox(props: OuiCheckboxProps) {
               <Check aria-hidden className={ouiCheckboxIcon} />
             ) : null}
           </div>
-          {props.children}
+          {children}
         </>
       )}
     </Checkbox>

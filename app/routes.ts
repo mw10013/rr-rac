@@ -9,4 +9,5 @@ export default [
   route('text-fields', 'routes/text-fields.tsx'),
   route('shadcn-form', 'routes/shadcn-form.tsx'),
   route('forms', 'routes/forms.tsx'),
+  route('radio-groups', 'routes/radio-groups.tsx'),
 ] satisfies RouteConfig
