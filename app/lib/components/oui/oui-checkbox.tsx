@@ -84,7 +84,7 @@ export function OuiCheckbox({
       {...props}
       className={composeTailwindRenderProps(
         className,
-        `${ouiLabel} flex items-center space-x-2`
+        `${ouiLabel} flex items-center gap-2` //space-x-2 does not work.
       )}>
       {({ isSelected, isIndeterminate, ...renderProps }) => (
         <>

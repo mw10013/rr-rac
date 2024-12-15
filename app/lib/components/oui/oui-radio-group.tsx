@@ -49,7 +49,6 @@ export interface OuiRadioProps extends Omit<RadioProps, 'children'> {
   children?: ReactNode
 }
 
-// shadcn: flex items-center space-x-2
 // shadcn: aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50
 // TODO: OuiRadio: is focus:outline-none typos and should be focus-visible:outline-none?
 export function OuiRadio({ className, children, ...props }: OuiRadioProps) {
@@ -58,9 +57,10 @@ export function OuiRadio({ className, children, ...props }: OuiRadioProps) {
       {...props}
       className={composeTailwindRenderProps(
         className,
-        `${ouiLabel} flex items-center space-x-2`
+        // shadcn: flex items-center space-x-2
+        `${ouiLabel} flex items-center gap-2` // space-x-2 does not work
       )}>
-      {({ isSelected, isFocusVisible }) => (
+      {({ isSelected }) => (
         <>
           <div className="aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow group-data-[disabled]:cursor-not-allowed group-data-[disabled]:opacity-50 group-data-[focus-visible]:outline-none group-data-[focus-visible]:ring-1 group-data-[focus-visible]:ring-ring">
             {isSelected && <Circle className="h-3.5 w-3.5 fill-primary" />}
