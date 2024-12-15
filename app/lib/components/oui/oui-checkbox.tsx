@@ -48,7 +48,7 @@ export function OuiCheckboxGroup({
 // shadcn: "peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
 export const ouiCheckboxBox = tv({
   extend: focusRing,
-  base: 'size-4 shrink-0 rounded-sm border border-primary shadow flex items-center justify-center',
+  base: 'h-4 w-4 shrink-0 rounded-sm border border-primary shadow flex items-center justify-center',
   variants: {
     // isInvalid: {
     //   true: '[--color:theme(colors.red.700)] group-pressed:[--color:theme(colors.red.800)] dark:[--color:theme(colors.red.600)] dark:group-pressed:[--color:theme(colors.red.700)] forced-colors:![--color:Mark]',
@@ -63,7 +63,7 @@ export const ouiCheckboxBox = tv({
   },
 })
 
-export const ouiCheckboxIcon = 'size-4'
+export const ouiCheckboxIcon = 'h-4 w-4'
 
 // Pattern for Reusable Button Wrapper: https://github.com/adobe/react-spectrum/discussions/7511
 export interface OuiCheckboxProps extends Omit<CheckboxProps, 'children'> {

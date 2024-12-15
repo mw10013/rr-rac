@@ -27,7 +27,7 @@ const ouiSwitchTrack = tv({
 
 // shadcn: "pointer-events-none block h-4 w-4 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0"
 const ouiSwitchThumb = tv({
-  base: 'pointer-events-none block size-4 rounded-full bg-background shadow-lg ring-0 transition-transform',
+  base: 'pointer-events-none block h-4 w-4 rounded-full bg-background shadow-lg ring-0 transition-transform',
   variants: {
     isSelected: {
       false: 'translate-x-0',
