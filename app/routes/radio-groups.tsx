@@ -6,11 +6,12 @@ import { RadioGroup, RadioGroupItem } from '~/lib/components/ui/radio-group'
 export default function RouteComponent() {
   return (
     <div className="container flex flex-col items-center justify-center gap-4 p-6">
-      <OuiRadioGroup>
-        <OuiRadio value="dogs">Dog</OuiRadio>
-        <OuiRadio value="cats">Cat</OuiRadio>
+      <OuiRadioGroup defaultValue="comfortable" className="border">
+        <OuiRadio value="default">Default</OuiRadio>
+        <OuiRadio value="comfortable">Comfortable</OuiRadio>
+        <OuiRadio value="compact">Compact</OuiRadio>
       </OuiRadioGroup>
-      <RadioGroup defaultValue="comfortable">
+      <RadioGroup defaultValue="comfortable" className="border">
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="default" id="r1" />
           <Label htmlFor="r1">Default</Label>
