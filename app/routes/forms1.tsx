@@ -24,10 +24,13 @@ import { toast } from '~/lib/hooks/use-toast'
 function OuiInputForm() {
   return (
     <OuiForm className="w-2/3 border p-6">
-      <OuiRadioGroupEx label="Notify me about..." name="type">
+      <OuiRadioGroupEx
+        label="Notify me about..."
+        name="type"
+        className="border">
         <OuiRadio value="all">All new messages</OuiRadio>
         <OuiRadio value="mentions">Direct messages and mentions</OuiRadio>
-        <OuiRadio value="none">Nothing</OuiRadio>
+        {/* <OuiRadio value="none">Nothing</OuiRadio> */}
       </OuiRadioGroupEx>
       <OuiButton type="submit">Submit</OuiButton>
     </OuiForm>
@@ -73,7 +76,7 @@ function ShadcnInputForm() {
           control={form.control}
           name="type"
           render={({ field }) => (
-            <FormItem className="space-y-3">
+            <FormItem className="space-y-3 border">
               <FormLabel>Notify me about...</FormLabel>
               <FormControl>
                 <RadioGroup
@@ -96,12 +99,12 @@ function ShadcnInputForm() {
                       Direct messages and mentions
                     </FormLabel>
                   </FormItem>
-                  <FormItem className="flex items-center space-x-3 space-y-0">
+                  {/* <FormItem className="flex items-center space-x-3 space-y-0">
                     <FormControl>
                       <RadioGroupItem value="none" />
                     </FormControl>
                     <FormLabel className="font-normal">Nothing</FormLabel>
-                  </FormItem>
+                  </FormItem> */}
                 </RadioGroup>
               </FormControl>
               <FormMessage />

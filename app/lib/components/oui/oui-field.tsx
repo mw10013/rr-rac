@@ -7,9 +7,11 @@ import type {
   TextProps,
   ValidationResult,
 } from 'react-aria-components'
+import { useContext } from 'react'
 import {
   composeRenderProps,
   FieldError,
+  FieldErrorContext,
   Group,
   Input,
   Label,
@@ -47,6 +49,11 @@ OuiDescription.displayName = 'OuiDescription'
 
 // shadcn FormMessage: text-[0.8rem] font-medium text-destructive
 export function OuiFieldError(props: FieldErrorProps) {
+  const validation = useContext(FieldErrorContext)
+  if (!validation?.isInvalid) {
+    return null
+  }
+
   return (
     // FieldError structures with a <span> and does not have elementType like Text.
     // Wrap with <p> to get closer to shadcn

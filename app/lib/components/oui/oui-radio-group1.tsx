@@ -14,6 +14,10 @@ export function OuiRadioGroup(props: RadioGroupProps) {
     <RadioGroup
       {...props}
       className={composeTailwindRenderProps(props.className, 'grid gap-2')}
+      // className={composeTailwindRenderProps(
+      //   props.className,
+      //   'flex flex-col space-y-2'
+      // )}
     />
   )
 }
@@ -35,8 +39,8 @@ export function OuiRadioGroupEx({
   ...props
 }: OuiRadioGroupExProps) {
   return (
-    <OuiRadioGroup {...props}>
-      {label && <OuiLabel>{label}</OuiLabel>}
+    <OuiRadioGroup {...props} className="flex flex-col gap-3 border">
+      {label && <OuiLabel className="mb-1">{label}</OuiLabel>}
       {children}
       {description && <OuiDescription>{description}</OuiDescription>}
       <OuiFieldError>{errorMessage}</OuiFieldError>

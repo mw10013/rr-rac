@@ -35,7 +35,7 @@ export function OuiRadioGroupEx({
   ...props
 }: OuiRadioGroupExProps) {
   return (
-    <OuiRadioGroup {...props}>
+    <OuiRadioGroup {...props} className="flex flex-col gap-3">
       {label && <OuiLabel>{label}</OuiLabel>}
       {children}
       {description && <OuiDescription>{description}</OuiDescription>}
