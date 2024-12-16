@@ -48,20 +48,21 @@ export function OuiDescription(props: TextProps) {
 OuiDescription.displayName = 'OuiDescription'
 
 // shadcn FormMessage: text-[0.8rem] font-medium text-destructive
-export function OuiFieldError(props: FieldErrorProps) {
+export function OuiFieldError({ className, ...props }: FieldErrorProps) {
+  // FieldError seems to structure with a <span> and does not have elementType like Text.
+  // Wrap with <p> to get closer to shadcn.
+  // Guard with validation check to prevent empty <p>'s.
+  // Reference: https://github.com/adobe/react-spectrum/issues/7525
   const validation = useContext(FieldErrorContext)
   if (!validation?.isInvalid) {
     return null
   }
-
   return (
-    // FieldError structures with a <span> and does not have elementType like Text.
-    // Wrap with <p> to get closer to shadcn
     <p>
       <FieldError
         {...props}
         className={composeTailwindRenderProps(
-          props.className,
+          className,
           'text-[0.8rem] font-medium text-destructive'
         )}
       />
@@ -69,6 +70,21 @@ export function OuiFieldError(props: FieldErrorProps) {
   )
 }
 OuiFieldError.displayName = 'OuiFieldError'
+
+/*
+export function OuiFieldError({className, ...props}: FieldErrorProps) {
+  return (
+      <FieldError
+        elementType="p"
+        {...props}
+        className={composeTailwindRenderProps(
+          className,
+          'text-[0.8rem] font-medium text-destructive'
+        )}
+      />
+  )
+}
+*/
 
 // shadcn input: flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background
 // file:border-0 file:bg-transparent file:text-sm file:font-medium

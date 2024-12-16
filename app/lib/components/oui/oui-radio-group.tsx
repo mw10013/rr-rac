@@ -9,11 +9,17 @@ import { Radio, RadioGroup } from 'react-aria-components'
 import { composeTailwindRenderProps } from './oui-base'
 import { OuiDescription, OuiFieldError, ouiLabel, OuiLabel } from './oui-field'
 
+// Layout targets form example in https://ui.shadcn.com/docs/components/radio-group
+
 export function OuiRadioGroup(props: RadioGroupProps) {
   return (
     <RadioGroup
       {...props}
-      className={composeTailwindRenderProps(props.className, 'grid gap-2')}
+      // className={composeTailwindRenderProps(props.className, 'grid gap-2')}
+      className={composeTailwindRenderProps(
+        props.className,
+        'flex flex-col gap-3'
+      )}
     />
   )
 }
@@ -36,7 +42,7 @@ export function OuiRadioGroupEx({
 }: OuiRadioGroupExProps) {
   return (
     <OuiRadioGroup {...props} className="flex flex-col gap-3">
-      {label && <OuiLabel>{label}</OuiLabel>}
+      {label && <OuiLabel className="mb-1">{label}</OuiLabel>}
       {children}
       {description && <OuiDescription>{description}</OuiDescription>}
       <OuiFieldError>{errorMessage}</OuiFieldError>
@@ -50,15 +56,15 @@ export interface OuiRadioProps extends Omit<RadioProps, 'children'> {
 }
 
 // shadcn: aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50
-// TODO: OuiRadio: is focus:outline-none typos and should be focus-visible:outline-none?
+// TODO: OuiRadio: is focus:outline-none typo and should be focus-visible:outline-none?
 export function OuiRadio({ className, children, ...props }: OuiRadioProps) {
   return (
     <Radio
       {...props}
       className={composeTailwindRenderProps(
         className,
-        // shadcn: flex items-center space-x-2
-        `${ouiLabel} flex items-center gap-2` // space-x-2 does not work
+        // shadcn: flex items-center space-x-3 space-y-0
+        `${ouiLabel} flex items-center gap-3` // space-x-3 does not work
       )}>
       {({ isSelected }) => (
         <>
