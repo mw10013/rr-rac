@@ -5,41 +5,25 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { OuiButton } from '~/lib/components/oui/oui-button'
 import { OuiForm } from '~/lib/components/oui/oui-form'
-import { OuiRadio, OuiRadioGroupEx } from '~/lib/components/oui/oui-radio-group'
-import { OuiTextFieldEx } from '~/lib/components/oui/oui-text-field'
+import {
+  OuiRadio,
+  OuiRadioGroupEx,
+} from '~/lib/components/oui/oui-radio-group1'
 import { Button } from '~/lib/components/ui/button'
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from '~/lib/components/ui/form'
-import { Input } from '~/lib/components/ui/input'
 import { RadioGroup, RadioGroupItem } from '~/lib/components/ui/radio-group'
 import { toast } from '~/lib/hooks/use-toast'
 
 function OuiInputForm() {
   return (
     <OuiForm className="w-2/3 border p-6">
-      <OuiTextFieldEx
-        name="username"
-        type="text"
-        label="Username"
-        description="This is your public display name."
-        placeholder="shadcn"
-        isRequired
-      />
-      <OuiTextFieldEx name="email" type="email" label="Email" isRequired />
-      <OuiTextFieldEx
-        name="reserved"
-        type="text"
-        label="Reserved"
-        isDisabled
-        placeholder="This field is reserved."
-      />
       <OuiRadioGroupEx label="Notify me about..." name="type">
         <OuiRadio value="all">All new messages</OuiRadio>
         <OuiRadio value="mentions">Direct messages and mentions</OuiRadio>
@@ -85,52 +69,6 @@ function ShadcnInputForm() {
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className="w-2/3 space-y-6 border p-6">
-        <FormField
-          control={form.control}
-          name="username"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="shadcn" {...field} />
-              </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="reserved"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Reserved</FormLabel>
-              <FormControl>
-                <Input
-                  {...field}
-                  placeholder="This field is reserved."
-                  disabled
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
         <FormField
           control={form.control}
           name="type"
