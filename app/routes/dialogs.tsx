@@ -1,6 +1,6 @@
 'use client'
 
-import { Modal } from 'react-aria-components'
+import { Modal, ModalOverlay } from 'react-aria-components'
 import { OuiButton } from '~/lib/components/oui/oui-button'
 import { OuiDialog, OuiDialogTrigger } from '~/lib/components/oui/oui-dialog'
 import { Button } from '~/lib/components/ui/button'
@@ -16,20 +16,25 @@ import {
 import { Input } from '~/lib/components/ui/input'
 import { Label } from '~/lib/components/ui/label'
 
+// shadcn DialogOverlay: fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0
+// shadcn DialogContent: fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg
+
 function OuiDialogExample() {
   return (
     <OuiDialogTrigger>
       <OuiButton variant="outline">Edit Profile</OuiButton>
-      <Modal>
-        <OuiDialog>
-          {/* <Heading
+      <ModalOverlay className="fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0">
+        <Modal>
+          <OuiDialog className="fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg">
+            {/* <Heading
             slot="title"
             className="text-xxl my-0 font-semibold leading-6 text-slate-700">
             Delete folder
-          </Heading> */}
-          Jello dia
-        </OuiDialog>
-      </Modal>
+            </Heading> */}
+            Jello dia
+          </OuiDialog>
+        </Modal>
+      </ModalOverlay>
     </OuiDialogTrigger>
   )
 }
