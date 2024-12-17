@@ -46,6 +46,7 @@ OuiDescription.displayName = 'OuiDescription'
 
 // shadcn FormMessage: text-[0.8rem] font-medium text-destructive
 export function OuiFieldError({ className, ...props }: FieldErrorProps) {
+  // https://github.com/adobe/react-spectrum/issues/7525
   return (
     <TextContext.Provider value={{ elementType: 'p' }}>
       <FieldError
