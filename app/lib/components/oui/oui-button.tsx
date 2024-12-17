@@ -56,7 +56,7 @@ export const ouiButton = tv({
     {
       variant: 'secondary',
       isHovered: true,
-      class: 'data-[hovered]:bg-secondary/80 bg-secondary/80',
+      class: 'bg-secondary/80 data-[hovered]:bg-secondary/80',
     },
     {
       variant: 'link',
