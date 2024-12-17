@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { OuiButton } from '~/lib/components/oui/oui-button'
 import { OuiForm } from '~/lib/components/oui/oui-form'
+import { OuiListBox, OuiListBoxItem } from '~/lib/components/oui/oui-list-box'
 import { OuiRadio, OuiRadioGroupEx } from '~/lib/components/oui/oui-radio-group'
 import { OuiTextFieldEx } from '~/lib/components/oui/oui-text-field'
 import { Button } from '~/lib/components/ui/button'
@@ -26,9 +27,19 @@ import {
 } from '~/lib/components/ui/select'
 import { toast } from '~/lib/hooks/use-toast'
 
-function OuiInputForm() {
+function OuiListBoxExample() {
   return (
-    <OuiForm className="w-2/3 border p-6">
+    <OuiListBox>
+      <OuiListBoxItem>Item 1</OuiListBoxItem>
+      <OuiListBoxItem>Item 2</OuiListBoxItem>
+      <OuiListBoxItem>Item 3</OuiListBoxItem>
+    </OuiListBox>
+  )
+}
+
+function OuiFormExample() {
+  return (
+    <OuiForm className="w-1/3 border p-6">
       <OuiTextFieldEx
         name="username"
         type="text"
@@ -62,8 +73,8 @@ const FormSchema = z.object({
     })
     .email(),
 })
-
-export function ShadcnExampleForm() {
+//
+export function ShadcnFormExample() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   })
@@ -117,8 +128,9 @@ export function ShadcnExampleForm() {
 export default function RouteComponent() {
   return (
     <div className="container flex flex-col items-center justify-center gap-4 p-6">
-      {/* <OuiInputForm /> */}
-      <ShadcnExampleForm />
+      {/* <OuiFormExample /> */}
+      <OuiListBoxExample />
+      <ShadcnFormExample />
     </div>
   )
 }
