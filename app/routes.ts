@@ -11,5 +11,6 @@ export default [
   route('forms', 'routes/forms.tsx'),
   route('forms1', 'routes/forms1.tsx'),
   route('list-boxes', 'routes/list-boxes.tsx'),
+  route('dialogs', 'routes/dialogs.tsx'),
   route('radio-groups', 'routes/radio-groups.tsx'),
 ] satisfies RouteConfig
