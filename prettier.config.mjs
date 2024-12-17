@@ -29,6 +29,11 @@ const config = {
   // https://github.com/tailwindlabs/prettier-plugin-tailwindcss
   // https://github.com/tailwindlabs/prettier-plugin-tailwindcss/issues/59
   tailwindConfig: 'tailwind.config.ts',
+  // https://github.com/tailwindlabs/prettier-plugin-tailwindcss?tab=readme-ov-file#sorting-classes-in-function-calls
+  tailwindFunctions: ['tv', 'composeTailwindRenderProps'],
+  // https://github.com/tailwindlabs/prettier-plugin-tailwindcss?tab=readme-ov-file#specifying-your-tailwind-stylesheet-path
+  tailwindStylesheet: './app/app.css',
+
   plugins: [
     '@ianvs/prettier-plugin-sort-imports',
     // https://github.com/tailwindlabs/prettier-plugin-tailwindcss?tab=readme-ov-file#compatibility-with-other-prettier-plugins
