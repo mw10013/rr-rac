@@ -86,9 +86,9 @@ export function OuiButton({
       className={composeRenderProps(className, (className, renderProps) =>
         ouiButton({
           ...renderProps,
-          className,
           variant,
           size,
+          className,
         })
       )}
     />
