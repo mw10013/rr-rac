@@ -3,11 +3,11 @@ import { TextField } from 'react-aria-components'
 import { composeTailwindRenderProps } from './oui-base'
 import { OuiDescription, OuiFieldError, OuiInput, OuiLabel } from './oui-field'
 
-export function OuiTextField(props: TextFieldProps) {
+export function OuiTextField({className ,...props}: TextFieldProps) {
   return (
     <TextField
       {...props}
-      className={composeTailwindRenderProps(props.className, 'group space-y-2')}
+      className={composeTailwindRenderProps(className, 'group space-y-2')}
     />
   )
 }
