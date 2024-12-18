@@ -3,6 +3,9 @@
 import { OuiButton } from '~/lib/components/oui/oui-button'
 import {
   OuiDialog,
+  OuiDialogDescription,
+  OuiDialogHeader,
+  OuiDialogHeading,
   OuiDialogTrigger,
   OuiModal,
   OuiModalOverlay,
@@ -11,6 +14,9 @@ import { Button } from '~/lib/components/ui/button'
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
   DialogTrigger,
 } from '~/lib/components/ui/dialog'
 
@@ -21,12 +27,12 @@ function OuiDialogExample() {
       <OuiModalOverlay>
         <OuiModal>
           <OuiDialog>
-            {/* <Heading
-            slot="title"
-            className="text-xxl my-0 font-semibold leading-6 text-slate-700">
-            Delete folder
-            </Heading> */}
-            Hello oui
+            <OuiDialogHeader>
+              <OuiDialogHeading>Edit profile</OuiDialogHeading>
+              <OuiDialogDescription>
+                Make changes to your profile here. Click save when you're done.
+              </OuiDialogDescription>
+            </OuiDialogHeader>
           </OuiDialog>
         </OuiModal>
       </OuiModalOverlay>
@@ -41,13 +47,12 @@ function ShadcnDialogExample() {
         <Button variant="outline">Edit Profile</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
-        Hello, shadcn
-        {/* <DialogHeader>
+        <DialogHeader>
           <DialogTitle>Edit profile</DialogTitle>
           <DialogDescription>
             Make changes to your profile here. Click save when you're done.
           </DialogDescription>
-        </DialogHeader> */}
+        </DialogHeader>
         {/* <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="name" className="text-right">

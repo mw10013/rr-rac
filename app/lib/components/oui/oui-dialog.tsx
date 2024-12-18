@@ -1,13 +1,19 @@
 import type { ReactNode } from 'react'
-import type { DialogProps, ModalOverlayProps } from 'react-aria-components'
+import type {
+  DialogProps,
+  HeadingProps,
+  ModalOverlayProps,
+} from 'react-aria-components'
 import { X } from 'lucide-react'
 import {
   Button,
   Dialog,
   DialogTrigger,
+  Heading,
   Modal,
   ModalOverlay,
 } from 'react-aria-components'
+import { twMerge } from 'tailwind-merge'
 import { composeTailwindRenderProps } from './oui-base'
 
 export const OuiDialogTrigger = DialogTrigger
@@ -53,6 +59,7 @@ export function OuiDialog({ children, ...props }: OuiDialogProps) {
         <>
           {children}
           <Button
+            slot="close"
             onPress={close}
             className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity data-[disabled]:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground data-[hovered]:opacity-100 data-[focused]:outline-none data-[focused]:ring-2 data-[focused]:ring-ring data-[focused]:ring-offset-2">
             <X className="size-4" />
@@ -63,3 +70,58 @@ export function OuiDialog({ children, ...props }: OuiDialogProps) {
     </Dialog>
   )
 }
+
+// shadcn DialogHeader: flex flex-col space-y-1.5 text-center sm:text-left
+export const OuiDialogHeader = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    {...props}
+    className={twMerge(
+      'flex flex-col space-y-1.5 text-center sm:text-left',
+      className
+    )}
+  />
+)
+OuiDialogHeader.displayName = 'OuiDialogHeader'
+
+// shadcn DialogFooter: text-lg font-semibold leading-none tracking-tight
+export const OuiDialogFooter = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    {...props}
+    className={twMerge(
+      'text-lg font-semibold leading-none tracking-tight',
+      className
+    )}
+  />
+)
+OuiDialogFooter.displayName = 'OuiDialogFooter'
+
+// shadcn DialogTitle: text-lg font-semibold leading-none tracking-tight
+export const OuiDialogHeading = ({ className, ...props }: HeadingProps) => (
+  <Heading
+    level={2}
+    slot="title"
+    {...props}
+    className={twMerge(
+      'text-lg font-semibold leading-none tracking-tight',
+      className
+    )}
+  />
+)
+OuiDialogHeading.displayName = 'OuiDialogHeading'
+
+// shadcn DialogDescription: text-sm text-muted-foreground
+export const OuiDialogDescription = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLParagraphElement>) => (
+  <p
+    {...props}
+    className={twMerge('text-sm text-muted-foreground', className)}
+  />
+)
