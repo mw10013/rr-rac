@@ -2,13 +2,13 @@ import type { ReactNode } from 'react'
 import type { DialogProps, ModalOverlayProps } from 'react-aria-components'
 import { X } from 'lucide-react'
 import {
+  Button,
   Dialog,
   DialogTrigger,
   Modal,
   ModalOverlay,
 } from 'react-aria-components'
 import { composeTailwindRenderProps } from './oui-base'
-import { OuiButton } from './oui-button'
 
 export const OuiDialogTrigger = DialogTrigger
 
@@ -50,13 +50,12 @@ export function OuiDialog({ children, ...props }: OuiDialogProps) {
       {({ close }) => (
         <>
           {children}
-          <OuiButton
-            variant="ghost"
+          <Button
             onPress={close}
-            className="absolute right-4 top-4 block h-fit w-fit rounded-sm p-0 opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-            <X />
+            className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity data-[disabled]:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground data-[hovered]:opacity-100 data-[focused]:outline-none data-[focused]:ring-2 data-[focused]:ring-ring data-[focused]:ring-offset-2">
+            <X className="size-4" />
             <span className="sr-only">Close</span>
-          </OuiButton>
+          </Button>
         </>
       )}
     </Dialog>
