@@ -1,10 +1,10 @@
 'use client'
 
-import { Modal } from 'react-aria-components'
 import { OuiButton } from '~/lib/components/oui/oui-button'
 import {
   OuiDialog,
   OuiDialogTrigger,
+  OuiModal,
   OuiModalOverlay,
 } from '~/lib/components/oui/oui-dialog'
 import { Button } from '~/lib/components/ui/button'
@@ -14,18 +14,13 @@ import {
   DialogTrigger,
 } from '~/lib/components/ui/dialog'
 
-// shadcn DialogOverlay: fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0
-// shadcn DialogContent: fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg
-
 function OuiDialogExample() {
   return (
     <OuiDialogTrigger>
       <OuiButton variant="outline">Edit Profile</OuiButton>
-      {/* <ModalOverlay className="fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0"> */}
       <OuiModalOverlay>
-        <Modal className="fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0">
-          {/* <Modal> */}
-          <OuiDialog className="fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg">
+        <OuiModal>
+          <OuiDialog>
             {/* <Heading
             slot="title"
             className="text-xxl my-0 font-semibold leading-6 text-slate-700">
@@ -33,7 +28,7 @@ function OuiDialogExample() {
             </Heading> */}
             Hello oui
           </OuiDialog>
-        </Modal>
+        </OuiModal>
       </OuiModalOverlay>
     </OuiDialogTrigger>
   )
