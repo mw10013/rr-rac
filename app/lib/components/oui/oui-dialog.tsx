@@ -3,6 +3,7 @@ import type {
   DialogProps,
   HeadingProps,
   ModalOverlayProps,
+  PopoverProps,
 } from 'react-aria-components'
 import { X } from 'lucide-react'
 import {
@@ -12,6 +13,7 @@ import {
   Heading,
   Modal,
   ModalOverlay,
+  Popover,
 } from 'react-aria-components'
 import { twMerge } from 'tailwind-merge'
 import { composeTailwindRenderProps } from './oui-base'
@@ -134,3 +136,32 @@ export const OuiDialogDescription = ({
     className={twMerge('text-sm text-muted-foreground', className)}
   />
 )
+
+// shadcn PopoverContent: z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2
+export const OuiPopover = ({
+  className,
+  offset = 4,
+  ...props
+}: PopoverProps) => (
+  <Popover
+    {...props}
+    offset={offset}
+    className={composeTailwindRenderProps(
+      className,
+      'z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[entering]:animate-in data-[exiting]:animate-out data-[entering]:fade-in-0 data-[exiting]:fade-out-0 data-[entering]:zoom-in-95 data-[exiting]:zoom-out-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2'
+    )}
+  />
+)
+
+export const OuiPopoverDialog = Dialog
+
+// export const OuiPopoverDialog = ({
+//   className, ...props}: DialogProps) => (
+//     <Dialog
+//     {...props}
+//     className={composeTailwindRenderProps(
+//       className,
+
+//     )}
+//   })
+// })

@@ -7,10 +7,11 @@ export default [
   route('checkboxes', 'routes/checkboxes.tsx'),
   route('switches', 'routes/switches.tsx'),
   route('text-fields', 'routes/text-fields.tsx'),
+  route('radio-groups', 'routes/radio-groups.tsx'),
   route('shadcn-form', 'routes/shadcn-form.tsx'),
   route('forms', 'routes/forms.tsx'),
   route('forms1', 'routes/forms1.tsx'),
   route('list-boxes', 'routes/list-boxes.tsx'),
   route('dialogs', 'routes/dialogs.tsx'),
-  route('radio-groups', 'routes/radio-groups.tsx'),
+  route('popovers', 'routes/popovers.tsx'),
 ] satisfies RouteConfig
