@@ -38,12 +38,7 @@ function OuiDialogExample() {
                 Make changes to your profile here. Click save when you're done.
               </OuiDialogDescription>
             </OuiDialogHeader>
-            <OuiTextFieldEx
-              autoFocus
-              label="Name"
-              placeholder="Pedro Duarte"
-              className="focus-visible:outline-none"
-            />
+            <OuiTextFieldEx autoFocus label="Name" placeholder="Pedro Duarte" />
             <OuiDialogFooter>
               <OuiButton>Save changes</OuiButton>
             </OuiDialogFooter>

@@ -2,10 +2,11 @@
 
 import { OuiButton } from '~/lib/components/oui/oui-button'
 import {
-  OuiDialogTrigger,
   OuiPopover,
   OuiPopoverDialog,
+  OuiPopoverTrigger,
 } from '~/lib/components/oui/oui-dialog'
+import { OuiTextFieldEx } from '~/lib/components/oui/oui-text-field'
 import { Button } from '~/lib/components/ui/button'
 import { Input } from '~/lib/components/ui/input'
 import { Label } from '~/lib/components/ui/label'
@@ -17,12 +18,26 @@ import {
 
 function OuiExample() {
   return (
-    <OuiDialogTrigger>
+    <OuiPopoverTrigger>
       <OuiButton variant="outline">Open popover</OuiButton>
       <OuiPopover className="w-80">
-        <OuiPopoverDialog>ABACAB</OuiPopoverDialog>
+        <OuiPopoverDialog>
+          <div className="grid gap-4">
+            <div className="space-y-2">
+              <h4 className="font-medium leading-none">Dimensions</h4>
+              <p className="text-sm text-muted-foreground">
+                Set the dimensions for the layer.
+              </p>
+              <OuiTextFieldEx
+                autoFocus
+                label="Name"
+                placeholder="Pedro Duarte"
+              />
+            </div>
+          </div>
+        </OuiPopoverDialog>
       </OuiPopover>
-    </OuiDialogTrigger>
+    </OuiPopoverTrigger>
   )
 }
 
