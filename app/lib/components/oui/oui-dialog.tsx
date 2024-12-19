@@ -156,14 +156,3 @@ export const OuiPopover = ({
 )
 
 export const OuiPopoverDialog = Dialog
-
-// export const OuiPopoverDialog = ({
-//   className, ...props}: DialogProps) => (
-//     <Dialog
-//     {...props}
-//     className={composeTailwindRenderProps(
-//       className,
-
-//     )}
-//   })
-// })
