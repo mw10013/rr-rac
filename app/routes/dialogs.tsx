@@ -4,6 +4,7 @@ import { OuiButton } from '~/lib/components/oui/oui-button'
 import {
   OuiDialog,
   OuiDialogDescription,
+  OuiDialogFooter,
   OuiDialogHeader,
   OuiDialogHeading,
   OuiDialogTrigger,
@@ -15,6 +16,7 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -33,6 +35,9 @@ function OuiDialogExample() {
                 Make changes to your profile here. Click save when you're done.
               </OuiDialogDescription>
             </OuiDialogHeader>
+            <OuiDialogFooter>
+              <OuiButton>Save changes</OuiButton>
+            </OuiDialogFooter>
           </OuiDialog>
         </OuiModal>
       </OuiModalOverlay>
@@ -67,9 +72,9 @@ function ShadcnDialogExample() {
             <Input id="username" value="@peduarte" className="col-span-3" />
           </div>
         </div> */}
-        {/* <DialogFooter>
+        <DialogFooter>
           <Button type="submit">Save changes</Button>
-        </DialogFooter> */}
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   )

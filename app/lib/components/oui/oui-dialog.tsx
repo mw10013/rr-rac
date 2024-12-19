@@ -7,6 +7,7 @@ import type {
 import { X } from 'lucide-react'
 import {
   Button,
+  composeRenderProps,
   Dialog,
   DialogTrigger,
   Heading,
@@ -24,10 +25,20 @@ export function OuiModalOverlay({ className, ...props }: ModalOverlayProps) {
   return (
     <ModalOverlay
       {...props}
-      className={composeTailwindRenderProps(
+      // className={composeTailwindRenderProps(
+      //   className,
+      //   // 'fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0'
+      //   'fixed inset-0 z-50 bg-black/80'
+      // )}
+      className={composeRenderProps(
         className,
-        // 'fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0'
-        'fixed inset-0 z-50 bg-black/80'
+        (className, { isEntering, isExiting }) =>
+          twMerge(
+            `fixed inset-0 z-50 bg-black/80`,
+            isEntering ? 'animate-in fade-in-0' : '',
+            isExiting ? 'animate-out fade-out-0' : '',
+            className
+          )
       )}
     />
   )
@@ -86,7 +97,7 @@ export const OuiDialogHeader = ({
 )
 OuiDialogHeader.displayName = 'OuiDialogHeader'
 
-// shadcn DialogFooter: text-lg font-semibold leading-none tracking-tight
+// shadcn DialogFooter: flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2
 export const OuiDialogFooter = ({
   className,
   ...props
@@ -94,7 +105,7 @@ export const OuiDialogFooter = ({
   <div
     {...props}
     className={twMerge(
-      'text-lg font-semibold leading-none tracking-tight',
+      'flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2',
       className
     )}
   />
