@@ -7,7 +7,6 @@ import type {
 import { X } from 'lucide-react'
 import {
   Button,
-  composeRenderProps,
   Dialog,
   DialogTrigger,
   Heading,
@@ -20,26 +19,24 @@ import { composeTailwindRenderProps } from './oui-base'
 export const OuiDialogTrigger = DialogTrigger
 
 // shadcn DialogOverlay: fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0
-// TODO: Check OuiModalOverlay animation
 export function OuiModalOverlay({ className, ...props }: ModalOverlayProps) {
   return (
     <ModalOverlay
       {...props}
-      // className={composeTailwindRenderProps(
-      //   className,
-      //   // 'fixed inset-0 z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0'
-      //   'fixed inset-0 z-50 bg-black/80'
-      // )}
-      className={composeRenderProps(
+      className={composeTailwindRenderProps(
         className,
-        (className, { isEntering, isExiting }) =>
-          twMerge(
-            `fixed inset-0 z-50 bg-black/80`,
-            isEntering ? 'animate-in fade-in-0' : '',
-            isExiting ? 'animate-out fade-out-0' : '',
-            className
-          )
+        'fixed inset-0 z-50 bg-black/80 data-[entering]:animate-in data-[exiting]:animate-out data-[entering]:fade-in-0 data-[exiting]:fade-out-0'
       )}
+      // className={composeRenderProps(
+      //   className,
+      //   (className, { isEntering, isExiting }) =>
+      //     twMerge(
+      //       `fixed inset-0 z-50 bg-black/80`,
+      //       isEntering ? 'animate-in fade-in-0' : '',
+      //       isExiting ? 'animate-out fade-out-0' : '',
+      //       className
+      //     )
+      // )}
     />
   )
 }
