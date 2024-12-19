@@ -11,6 +11,7 @@ import {
   OuiModal,
   OuiModalOverlay,
 } from '~/lib/components/oui/oui-dialog'
+import { OuiTextFieldEx } from '~/lib/components/oui/oui-text-field'
 import { Button } from '~/lib/components/ui/button'
 import {
   Dialog,
@@ -35,6 +36,12 @@ function OuiDialogExample() {
                 Make changes to your profile here. Click save when you're done.
               </OuiDialogDescription>
             </OuiDialogHeader>
+            <OuiTextFieldEx
+              autoFocus
+              label="Name"
+              placeholder="Pedro Duarte"
+              className="focus-visible:outline-none"
+            />
             <OuiDialogFooter>
               <OuiButton>Save changes</OuiButton>
             </OuiDialogFooter>
