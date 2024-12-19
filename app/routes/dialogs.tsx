@@ -22,13 +22,15 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '~/lib/components/ui/dialog'
+import { Input } from '~/lib/components/ui/input'
+import { Label } from '~/lib/components/ui/label'
 
 function OuiDialogExample() {
   return (
     <OuiDialogTrigger>
       <OuiButton variant="outline">Edit Profile</OuiButton>
       <OuiModalOverlay>
-        <OuiModal>
+        <OuiModal className="sm:max-w-[425px]">
           <OuiDialog>
             <OuiDialogHeader>
               <OuiDialogHeading>Edit profile</OuiDialogHeading>
@@ -65,7 +67,7 @@ function ShadcnDialogExample() {
             Make changes to your profile here. Click save when you're done.
           </DialogDescription>
         </DialogHeader>
-        {/* <div className="grid gap-4 py-4">
+        <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="name" className="text-right">
               Name
@@ -78,7 +80,7 @@ function ShadcnDialogExample() {
             </Label>
             <Input id="username" value="@peduarte" className="col-span-3" />
           </div>
-        </div> */}
+        </div>
         <DialogFooter>
           <Button type="submit">Save changes</Button>
         </DialogFooter>
